@@ -97,7 +97,15 @@
 </fieldset>
 
 <script>
-  // code here for above problem
+
+  var button = document.getElementById("popup-alert-button");
+
+  function popUpAlert() {
+    alert("Surprise! Made you pop up.");
+  }
+
+  button.addEventListener('click', popUpAlert);
+
 </script>
 
 
@@ -115,7 +123,16 @@
 </fieldset>
 
 <script>
-  // code here for above-problem
+  
+  var button = document.getElementById("change-hello-to-goodbye-button");
+  var greeting = document.getElementById("message-to-change");
+
+  function changeGreeting() {
+    greeting.innerText = 'goodbye';
+  }
+
+  button.addEventListener('click', changeGreeting);
+
 </script>
 
 <div class="hint">
@@ -144,7 +161,17 @@
 </fieldset>
 
 <script>
-  // code here for above problem
+  
+  var submissionForm = document.getElementById("prevent-form-submission-form");
+
+  function preventSubmission(evt) {
+    alert("Sorry! This form has been prevented from submission");
+    evt.preventDefault();
+  }
+
+  submissionForm.addEventListener('submit', preventSubmission);
+
+
 </script>
 
 <div class="hint">
@@ -174,22 +201,44 @@
 </fieldset>
 
 <script>
-//  Here's a stub of a function you can use!
 
-//  function reverseString() {
-//    var msg = "Porcupines are cute";
-//
-//    // do some stuff here to reverse that string into a new variable
-//    var newMsg = "This should be the reversed string";
-//
-//    alert(newMsg);
-//  }
+// set variable button to grab the button by its id tag
+  var button = document.getElementById('reverse-string-button');
 
-// Here's a stub of event stuff you could use
-//
+// defined function that will pop up alert box when button is pushed with the string's order reversed
+  function reverseString() {
 
-//  var button = document.getElementById('reverse-string-button');
-//  button.addEventListener('click', reverseString);
+    // variable msg is bound to string to be reversed
+    var msg = "Porcupines are cute";
+
+    // empty array that will collect each character from the string msg when for-loop occurs
+    var characters = [];
+
+    // for-loop: will loop over the length of the string msg, increment by 1 and pull out each
+    // character in the string individualy by indexing
+    for (var i = 0; i < msg.length; i++) {
+
+     // (msg[i]) - binds index from for-loop to each character in msg
+     // characters.unshift - adds each character into the empty array characters but in reverse order
+     // by adding the last character in the string to the begining of the array instead of the end
+     // push() adds items to the end of an array, 
+     // unshift() adds items to the beginning of an array
+      characters.unshift(msg[i]);
+      // console.log(characters);
+    }
+
+    // joins all the items in the array into a single string
+    // single string is now bound to variable newMsg
+    var newMsg = characters.join("");
+    // console.log(newMsg);
+
+    // alert box will pop up and display newMsg string in reverse
+    alert(newMsg);  
+  }
+
+  // when button is clicked it will run the function reverseString()
+   button.addEventListener('click', reverseString);
+
 </script>
 
 
@@ -201,7 +250,7 @@
 <p>You should use jQuery for these parts.</p>
 <p>We didn't include jQuery in this document, though&mdash;so your first task is to include it!</p>
 
-
+<script src="https://code.jquery.com/jquery.js"></script>
 
 <h3>Finding the Button</h3>
 <p>
@@ -213,7 +262,13 @@
 </fieldset>
 
 <script>
-  // code here for above problem
+
+  function popUpBox() {
+    alert("You clicked me!");
+  }
+
+  $('.tricky-to-find').click(popUpBox);
+
 </script>
 
 <div class="hint">
@@ -240,7 +295,15 @@
 </fieldset>
 
 <script>
-  // put your code here
+  
+  $('#kittenz-rule').attr('src', "https://s-media-cache-ak0.pinimg.com/236x/d3/e9/fc/d3e9fc222c9bd0d12e0ff126acf7df00.jpg");
+
+  function changeImage() {
+      $('#kittenz-rule').attr('src', 'https://s-media-cache-ak0.pinimg.com/236x/8a/e0/a2/8ae0a2acbd79f28603b745263c25d09f.jpg');
+  }
+
+  $('#kittenz-rule').click(changeImage);
+
 </script>
 
 <div class="hint">
@@ -273,7 +336,16 @@
 </fieldset>
 
 <script>
-  // put your code here
+  
+  function showPorcupine() {
+
+    setTimeout(function() { 
+              $('img#cute-porcupine-image').fadeIn(3000);
+          }, 1000);
+  }
+
+  $('#make-a-porcupine').click(showPorcupine);
+
 </script>
 
 <div class="hint">
@@ -284,6 +356,8 @@
 </div>
 
 <p>End of Skills Assessment. Read on for advanced problems. :)</p>
+
+
 
 
 
